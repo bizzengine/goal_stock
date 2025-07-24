@@ -1,0 +1,219 @@
+:root {
+    --primary-color: #4A69BD;
+    --light-primary-color: #EAF0FF;
+    --secondary-color: #F8F9FA;
+    --text-color: #212529;
+    --light-text-color: #6C757D;
+    --border-color: #DEE2E6;
+    --success-color: #28A745;
+    --danger-color: #DC3545;
+    --card-shadow: 0 4px 25px rgba(0, 0, 0, 0.05);
+    --card-radius: 12px;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+}
+
+.navbar {
+    background-color: white !important;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.navbar-brand {
+    font-weight: 700;
+    color: var(--primary-color) !important;
+    font-size: 1.7rem;
+}
+
+.main-container {
+    max-width: 1050px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+.analyzer-card {
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: var(--card-shadow);
+    text-align: center;
+}
+
+.analyzer-card h2 {
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+.form-label {
+    font-weight: 500;
+    color: var(--text-color);
+    text-align: left;
+    display: block;
+}
+
+.form-control {
+    border-radius: 8px;
+    padding: 12px;
+    border: 1px solid var(--border-color);
+}
+
+.form-control:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px var(--light-primary-color);
+}
+
+.submit-btn {
+    background-color: var(--primary-color);
+    border: none;
+    padding: 15px;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    width: 50%;
+    margin-top: 20px;
+}
+
+.submit-btn:hover {
+    background-color: #3B5998;
+}
+
+.stat-card {
+    background-color: #fff;
+    border-radius: var(--card-radius);
+    padding: 20px;
+    text-align: center;
+    box-shadow: var(--card-shadow);
+    border: none;
+}
+
+.stat-card .stat-title {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--light-text-color);
+}
+
+.stat-card .stat-value {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--text-color);
+}
+
+.table-container {
+    background-color: #fff;
+    padding: 25px;
+    border-radius: var(--card-radius);
+    box-shadow: var(--card-shadow);
+    margin-top: 2rem;
+}
+
+.table-container h5 {
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: var(--primary-color);
+}
+
+.table thead th {
+    background-color: #fff;
+    color: var(--light-text-color);
+    text-transform: uppercase;
+    font-size: 12px;
+    font-weight: 600;
+    border-bottom: 2px solid var(--border-color);
+    padding: 18px 8px;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.table tbody tr:hover {
+    background-color: var(--light-primary-color);
+}
+
+.table tbody td {
+    vertical-align: middle;
+    padding: 15px 10px;
+    text-align: center;
+    font-size: 1rem;
+}
+
+.badge {
+    font-weight: 600;
+    padding: 6px 10px;
+    border-radius: 6px;
+    font-size: 0.9rem;
+}
+
+.badge.bg-success {
+    background-color: #e9f7ec !important;
+    color: var(--success-color) !important;
+}
+
+.badge.bg-danger {
+    background-color: #fceeee !important;
+    color: var(--danger-color) !important;
+}
+
+.badge.bg-secondary {
+    background-color: #F0F2F5 !important;
+    color: var(--light-text-color) !important;
+}
+
+/* 자동완성 스타일 */
+.autocomplete-container {
+    position: relative;
+    text-align: left;
+}
+
+.autocomplete-dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: white;
+    border: 1px solid var(--border-color);
+    border-top: none;
+    border-radius: 0 0 8px 8px;
+    max-height: 200px;
+    overflow-y: auto;
+    z-index: 1000;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    text-align: left;
+}
+
+.autocomplete-item {
+    padding: 12px 15px;
+    cursor: pointer;
+    border-bottom: 1px solid #f0f0f0;
+    transition: background-color 0.2s;
+}
+
+.autocomplete-item:hover,
+.autocomplete-item.active {
+    background-color: var(--light-primary-color);
+}
+
+.autocomplete-item:last-child {
+    border-bottom: none;
+}
+
+.autocomplete-symbol {
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+.autocomplete-name {
+    font-size: 0.9em;
+    color: var(--light-text-color);
+    margin-left: 8px;
+}
+
+.autocomplete-rank {
+    font-size: 0.8em;
+    color: var(--light-text-color);
+    float: right;
+    background: #f8f9fa;
+    padding: 2px 8px;
+    border-radius: 12px;
+}
