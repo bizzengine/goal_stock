@@ -51,8 +51,23 @@ def profit_analyzer():
             excel_file = request.files['excel_file']
             if excel_file and excel_file.filename != '':
                 if excel_file.filename.endswith('.csv'):
-                    # io.StringIO를 사용하여 파일 내용을 문자열로 읽고 pandas로 파싱
-                    df_uploaded = pd.read_csv(io.StringIO(excel_file.stream.read().decode('utf-8')))
+                    # --- CSV 파일 인코딩 처리 부분 수정 시작 ---
+                    raw_data = excel_file.stream.read()
+                    decoded_data = None
+                    tried_encodings = ['utf-8', 'cp949', 'euc-kr', 'latin1']
+                    
+                    for encoding in tried_encodings:
+                        try:
+                            decoded_data = raw_data.decode(encoding)
+                            break # 성공적으로 디코딩되면 루프 종료
+                        except UnicodeDecodeError:
+                            continue # 다음 인코딩 시도
+                    
+                    if decoded_data is None:
+                        return jsonify({"error": "CSV 파일 인코딩을 자동으로 감지할 수 없습니다. 파일을 UTF-8로 저장하거나 다른 인코딩으로 시도해주세요."})
+                    
+                    df_uploaded = pd.read_csv(io.StringIO(decoded_data))
+                    # --- CSV 파일 인코딩 처리 부분 수정 끝 ---
                 elif excel_file.filename.endswith('.xlsx'):
                     # xlsx 파일은 직접 읽을 수 있음
                     df_uploaded = pd.read_excel(excel_file)
